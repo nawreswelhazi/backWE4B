@@ -30,4 +30,6 @@ public class personne implements Serializable{
     private String adresse;
     @Column(nullable = false, unique=true)
     private String mail;
+    @Column
+    private String mdp;
 }

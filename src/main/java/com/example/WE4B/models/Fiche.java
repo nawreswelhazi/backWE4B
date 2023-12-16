@@ -35,6 +35,6 @@ public class Fiche implements Serializable {
     private LocalDate dateCreation;
 
     @ManyToOne
-    private com.example.WE4B.models.patient patient;
+    private patient patient;
 
 }

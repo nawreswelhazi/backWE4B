@@ -18,14 +18,16 @@ public class RDV implements Serializable {
     @ManyToOne
     @MapsId("medecin_id")
     @JoinColumn(name = "medecin_id")
-    private com.example.WE4B.models.medecin medecin;
+    private medecin medecin;
 
     @ManyToOne
     @MapsId("patient_id")
     @JoinColumn(name = "patient_id")
-    private com.example.WE4B.models.patient patient;
+    private patient patient;
 
+    @Column(nullable = false)
     private String motif;
+    @Column(nullable = false)
     private LocalTime horaire;
 
 
