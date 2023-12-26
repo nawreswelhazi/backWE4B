@@ -2,16 +2,13 @@ package com.example.WE4B.serviceImpl;
 
 import com.example.WE4B.models.medecin;
 import com.example.WE4B.repositories.medecinRepository;
-import com.example.WE4B.repositories.patientRepository;
 import com.example.WE4B.services.medecinService;
-import com.example.WE4B.services.patientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
-
 import java.util.Optional;
 @Service
 public class medecinServiceImpl implements medecinService {

@@ -32,6 +32,6 @@ public class medecin extends personne implements Serializable {
     private LocalTime heureFermeture;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "medecin")
+    @OneToMany(mappedBy = "Medecin")
     private Set<RDV> listeRDV;
 }
