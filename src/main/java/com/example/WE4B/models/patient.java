@@ -23,7 +23,7 @@ public class patient extends personne implements Serializable {
     private  String num_assurance;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "patient")
+    @OneToMany(mappedBy = "Patient")
     Set<RDV> listeRDV;
 
     @JsonIgnore

@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.time.LocalTime;
 
 @Getter
@@ -13,20 +14,25 @@ import java.time.LocalTime;
 @NoArgsConstructor
 @Entity
 public class RDV implements Serializable {
-    @EmbeddedId
-    private RDVkey id;
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    private Long id;
     @ManyToOne
-    @MapsId("medecin_id")
     @JoinColumn(name = "medecin_id")
-    private com.example.WE4B.models.medecin medecin;
+    private medecin Medecin;
 
     @ManyToOne
-    @MapsId("patient_id")
     @JoinColumn(name = "patient_id")
-    private com.example.WE4B.models.patient patient;
+    private patient Patient;
 
+    @Column(nullable = false)
     private String motif;
+    @Column(nullable = false)
     private LocalTime horaire;
+
+    @Column(nullable = false)
+    private LocalDate date;
+
 
 
 }
