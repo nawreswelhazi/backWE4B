@@ -26,10 +26,6 @@ public class medecin extends personne implements Serializable {
     private String presentation;
     @Column(nullable = true)
     private int experience;
-    @Column(nullable = true)
-    private LocalTime heureOuverture;
-    @Column(nullable = true)
-    private LocalTime heureFermeture;
 
     @JsonIgnore
     @OneToMany(mappedBy = "Medecin")

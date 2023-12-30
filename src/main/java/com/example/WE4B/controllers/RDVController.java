@@ -1,6 +1,7 @@
 package com.example.WE4B.controllers;
 
 import com.example.WE4B.models.RDV;
+import com.example.WE4B.models.medecin;
 import com.example.WE4B.repositories.rdvRepository;
 import com.example.WE4B.services.rdvService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,6 +47,12 @@ public class RDVController {
                 heuresDisponibles.add(newTime.toString());
         }
         return new ResponseEntity(heuresDisponibles,HttpStatus.OK);
+    }
+
+    @PostMapping(value = "/new")
+    public ResponseEntity save(@RequestBody RDV r) {
+        RDV r1 = rdvRep.save(r);
+        return new ResponseEntity<>(r1, HttpStatus.CREATED);
     }
 
 

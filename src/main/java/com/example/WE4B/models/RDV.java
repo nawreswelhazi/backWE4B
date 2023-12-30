@@ -14,15 +14,14 @@ import java.time.LocalTime;
 @NoArgsConstructor
 @Entity
 public class RDV implements Serializable {
-    @EmbeddedId
-    private RDVkey id;
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    private Long id;
     @ManyToOne
-    @MapsId("medecin_id")
     @JoinColumn(name = "medecin_id")
     private medecin Medecin;
 
     @ManyToOne
-    @MapsId("patient_id")
     @JoinColumn(name = "patient_id")
     private patient Patient;
 

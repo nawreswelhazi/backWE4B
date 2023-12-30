@@ -32,4 +32,7 @@ public class personne implements Serializable{
     private String mail;
     @Column
     private String mdp;
+    @Column
+    private String photo;
+
 }
