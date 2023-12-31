@@ -14,5 +14,10 @@ public interface medecinRepository extends JpaRepository<medecin,Long> {
     public Optional<medecin> medecinExists(String mail, String codeINE);
     @Query("FROM medecin WHERE UPPER(specialite) = UPPER(?1) and ville LIKE UPPER('%' || ?2 || '%')")
      public List<medecin> findBySpecialiteVille(String specialite,String ville);
+    @Query("FROM medecin WHERE UPPER(specialite) = UPPER(?1) ")
+    public List<medecin> findBySpecialite(String specialite);
+    @Query("FROM medecin WHERE ville LIKE UPPER('%' || ?1 || '%') ")
+    public List<medecin> findByville(String ville);
 
 }
+

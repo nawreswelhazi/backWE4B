@@ -59,10 +59,24 @@ public class medecinController {
     }
 
     @GetMapping("/getMedecinsBySpecialiteVille/{specialite}/{ville}")
-    public ResponseEntity getMedecins(@PathVariable String specialite,@PathVariable String ville){
+    public ResponseEntity getMedecinsSv(@PathVariable String specialite,@PathVariable String ville){
         List<medecin> lst1 = MR.findBySpecialiteVille(specialite,ville);
-        if (lst1.isEmpty())
-            return new ResponseEntity(HttpStatus.NOT_FOUND);
+        //if (lst1.isEmpty())
+           // return new ResponseEntity(HttpStatus.NOT_FOUND);
+        return new ResponseEntity(lst1,HttpStatus.OK);
+    }
+    @GetMapping("/getMedecinsBySpecialite/{specialite}")
+    public ResponseEntity getMedecinsS(@PathVariable String specialite){
+        List<medecin> lst1 = MR.findBySpecialite(specialite);
+        //if (lst1.isEmpty())
+        // return new ResponseEntity(HttpStatus.NOT_FOUND);
+        return new ResponseEntity(lst1,HttpStatus.OK);
+    }
+    @GetMapping("/getMedecinsByVille/{ville}")
+    public ResponseEntity getMedecinsV(@PathVariable String ville){
+        List<medecin> lst1 = MR.findByville(ville);
+        //if (lst1.isEmpty())
+        // return new ResponseEntity(HttpStatus.NOT_FOUND);
         return new ResponseEntity(lst1,HttpStatus.OK);
     }
 
