@@ -18,4 +18,10 @@ public interface rdvRepository extends JpaRepository<RDV, RDVkey> {
 
     @Query("FROM RDV WHERE Medecin.id = ?1")
     public List<RDV> rdvMedecin(Long medecinId);
+
+    @Query("FROM RDV WHERE Patient.id = ?1 AND date >= CURRENT_DATE")
+    public List<RDV> rdvPatient(Long patientId);
+
+    @Query("FROM RDV WHERE Medecin.id = ?1 AND date >= CURRENT_DATE")
+    public List<RDV> rdvMedecinFutur(Long medecinID);
 }

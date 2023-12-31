@@ -55,5 +55,23 @@ public class RDVController {
         return new ResponseEntity<>(r1, HttpStatus.CREATED);
     }
 
+    @GetMapping("/getPatient/{id}")
+    public ResponseEntity getRDVPatient(@PathVariable Long id){
+        List<RDV> lst1 = rdvRep.rdvPatient(id);
+        if (lst1.isEmpty())
+            return new ResponseEntity(HttpStatus.NOT_FOUND);
+        return new ResponseEntity(lst1,HttpStatus.OK);
+    }
+
+    @GetMapping("/getMedecin/{id}")
+    public ResponseEntity getRDVsMedecin(@PathVariable Long id){
+        List<RDV> lst1 = rdvRep.rdvMedecinFutur(id);
+        if (lst1.isEmpty())
+            return new ResponseEntity(HttpStatus.NOT_FOUND);
+        return new ResponseEntity(lst1,HttpStatus.OK);
+    }
+
+
+
 
 }
