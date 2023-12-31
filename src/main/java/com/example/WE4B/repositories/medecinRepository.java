@@ -12,7 +12,7 @@ import java.util.Optional;
 public interface medecinRepository extends JpaRepository<medecin,Long> {
     @Query("FROM medecin WHERE mail = ?1 or codeINE = ?2")
     public Optional<medecin> medecinExists(String mail, String codeINE);
-    @Query("FROM medecin WHERE specialite = ?1 and ville = ?2")
+    @Query("FROM medecin WHERE UPPER(specialite) = UPPER(?1) and ville LIKE UPPER('%' || ?2 || '%')")
      public List<medecin> findBySpecialiteVille(String specialite,String ville);
 
 }
