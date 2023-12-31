@@ -71,6 +71,15 @@ public class RDVController {
         return new ResponseEntity(lst1,HttpStatus.OK);
     }
 
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity supprimerRDV(@PathVariable Long id){
+        Optional<RDV> rdv = rdvRep.findById(id);
+        if (!(rdv.isPresent()))
+            return new ResponseEntity(HttpStatus.NOT_FOUND);
+        rdvRep.deleteById(id);
+        return new ResponseEntity(rdv,HttpStatus.OK);
+    }
+
 
 
 

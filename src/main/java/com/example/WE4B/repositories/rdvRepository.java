@@ -12,7 +12,7 @@ import java.time.LocalTime;
 import java.util.List;
 import java.util.Optional;
 
-public interface rdvRepository extends JpaRepository<RDV, RDVkey> {
+public interface rdvRepository extends JpaRepository<RDV, Long> {
     @Query("FROM RDV WHERE Medecin.id = ?1 and date = ?2 and horaire = ?3")
     public Optional<RDV> rdvExists(Long medecinId, LocalDate date, LocalTime horaire);
 
