@@ -58,6 +58,15 @@ public class medecinController {
         return new ResponseEntity(a,HttpStatus.OK);
     }
 
+    @GetMapping("/getMedecinsBySpecialiteVille/{specialite}/{ville}")
+    public ResponseEntity getMedecins(@PathVariable String specialite,@PathVariable String ville){
+        List<medecin> lst1 = MR.findBySpecialiteVille(specialite,ville);
+        if (lst1.isEmpty())
+            return new ResponseEntity(HttpStatus.NOT_FOUND);
+        return new ResponseEntity(lst1,HttpStatus.OK);
+    }
+
+
     @PutMapping("/update/{id}")
     public ResponseEntity<?> modifierMedecin(@PathVariable Long id, @RequestBody medecin m1){
         ResponseEntity<?> lst = MS.modifierMedecin(id, m1);
