@@ -25,6 +25,9 @@ public class medecinServiceImpl implements medecinService {
         a2.setExperience(p1.getExperience());
         a2.setPrix(p1.getPrix());
         a2.setPresentation(p1.getPresentation());
+        a2.setVille(p1.getVille());
+        a2.setAdresse(p1.getAdresse());
+        a2.setSpecialite(p1.getSpecialite());
 
         medecin a3 = PR.save(a2);
         return new ResponseEntity(a3, HttpStatus.OK);

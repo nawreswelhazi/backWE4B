@@ -27,7 +27,7 @@ public class patientServiceImpl implements patientService {
         a2.setPoids(p1.getPoids());
         a2.setAdresse(p1.getAdresse());
         a2.setAge(p1.getAge());
-        a2.setMail(p1.getMail());
+        a2.setPhoto(p1.getPhoto());
 
         patient a3 = PR.save(a2);
         return new ResponseEntity(a3, HttpStatus.OK);
