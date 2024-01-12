@@ -35,8 +35,8 @@ public class medecinController {
     @GetMapping("/all")
     public ResponseEntity<List<medecin>> listerMedecins(){
         List<medecin> lst1 = MR.findAll();
-        if (lst1.isEmpty())
-            return new ResponseEntity(HttpStatus.NO_CONTENT);
+       // if (lst1.isEmpty())
+           //return new ResponseEntity(HttpStatus.NO_CONTENT);
         return new ResponseEntity(lst1, HttpStatus.OK);
     }
 
